@@ -1,0 +1,18 @@
+<div ng-controller="ApiController">
+<h1> Welcome! Lets play some bingo</h1>
+<div class="playerInformation">
+    <div>Username: {{gameApi.username}}</div>
+    <div>Balance:{{gameApi.balance | currency}}</div>
+</div>
+<div>
+    <input type="button" value="Start new game" ng-click="gameApi.getNextGame()">
+</div>
+<input type="button" value="Log Out" ng-click="gameApi.logOut()">
+<br>
+</div>
+
+
+<div ng-controller="BingoTicket">
+    <input type="button" value="Buy ticket" ng-click="ticketCreation.sortTicket()">
+</div>
+<a ui-sref="home" href="#">Home</a>

@@ -1,0 +1,14 @@
+ <div class="login" ng-controller="ApiController">
+        <h1>Login to Bingo</h1>
+        <form>
+            <p><input type="text" ng-model="{{gameApi.username}}" name="username" value="" placeholder="Username or Email"></p>
+            <p><input type="password" ng-model="{{gameApi.password}}" name="password" value="" placeholder="Password"></p>
+            <p class="remember_me">
+                <label>
+                    <input type="checkbox" name="remember_me" id="remember_me">
+                    Remember me on this computer
+                </label>
+            </p>
+            <input type="button" value="Submit" ng-click="authenticateUser.logIn()">
+        </form>
+    </div>
