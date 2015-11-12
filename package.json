@@ -1,0 +1,52 @@
+{
+  "name": "npm",
+  "version": "0.0.0",
+  "description": "initialise",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://DanPottshimself@github.com/danpottshimself/Hyper-Super-Bingo.git"
+  },
+  "keywords": [
+    "html",
+    "json",
+    "Angular"
+  ],
+  "author": "Daniel Potts",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/danpottshimself/Hyper-Super-Bingo/issues"
+  },
+  "homepage": "https://github.com/danpottshimself/Hyper-Super-Bingo",
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-copy": "~0.8.1",
+    "grunt-contrib-jshint": "~0.11.3",
+    "grunt-contrib-less": "~1.0.1",
+    "grunt-lesslint": "~1.3.0",
+    "jshint-stylish": "~2.0.1",
+    "bower": "~1.5.2",
+    "grunt-contrib-concat": "~0.5.1",
+    "grunt-contrib-clean": "~0.6.0",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-express-server": "~0.5.1",
+    "express": "~4.13.3",
+    "karma": "~0.13.10",
+    "karma-coffee-preprocessor": "~0.3.0",
+    "sinon": "~1.17.1",
+    "chai": "~3.3.0",
+    "sinon-chai": "~2.8.0",
+    "karma-mocha": "~0.2.0",
+    "karma-chai-sinon": "~0.1.5",
+    "karma-nyan-reporter": "~0.2.2",
+    "karma-firefox-launcher": "~0.1.6",
+    "mocha": "~2.3.3",
+    "karma-ng-html2js-preprocessor": "~0.2.0"
+  },
+  "dependencies": {
+    "karma-fixtures-preprocessor": "~1.0.0"
+  }
+}
