@@ -1,8 +1,8 @@
 (function () {
     'use strict';
     angular.module('Tombola.Module.ApiCall')
-        .service('GameApi', ['$state', '$interval', 'AuthenticateUser', 'UserLogIn',
-            function ($state, $interval, authenticateUser, userLogIn) {
+        .service('GameApi', ['$state', '$interval', 'AuthenticateUser', 'TicketCreation', 'UserLogIn', 'GameTimer', 'CheckWinners',
+            function ($state, $interval, authenticateUser, ticketCreation, userLogIn, gameTimer) {
                 var me  = this;
                 me.hideMe = false;
                 me.handlePromise = function (promise) {
