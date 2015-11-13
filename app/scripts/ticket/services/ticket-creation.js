@@ -3,13 +3,13 @@
     angular.module('Tombola.Module.Ticket')
         .service('TicketCreation',
             function () {
-                var me = this;
-                me.ticket = {
-                    numbers:[]
-                };
-                var BingoNumber = function (theNumber) {
+                var me = this,
+                    BingoNumber = function (theNumber) {
                     this.number = theNumber;
                     this.matched = false;
+                };
+                me.ticket = {
+                    numbers:[]
                 };
                 me.lines = [];
                 me.squares = [];
@@ -29,7 +29,6 @@
                         }
                         me.lines.push(line);
                     }
-                    console.log(me.lines);
                 };
 
                 me.createSquares = function (){
@@ -55,7 +54,6 @@
                         for (j=0; j<5; j++){
                             if(me.lines[i][j].number === calledNumber){
                                 me.lines[i][j].matched = true;
-                                console.log('matched');
                             }
                         }
                     }

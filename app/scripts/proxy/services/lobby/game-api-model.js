@@ -1,8 +1,8 @@
 (function () {
     'use strict';
     angular.module('Tombola.Module.ApiCall')
-        .service('GameApi', ['$state', '$interval', 'AuthenticateUser', 'TicketCreation', 'UserLogIn', 'GameTimer', 'CheckWinners',
-            function ($state, $interval, authenticateUser, ticketCreation, userLogIn, gameTimer) {
+        .service('GameApiModel', ['$state', 'GameApiProxy', 'TicketCreation', 'UserLogIn', 'GameTimer', 'CheckWinners',
+            function ($state, gameApiProxy, ticketCreation, userLogIn, gameTimer, checkWinners) {
                 var me  = this;
                 me.hideMe = false;
                 me.handlePromise = function (promise) {
@@ -23,18 +23,13 @@
                         });
                 };
 
-                me.logOut = function () {
-                    var promise = authenticateUser.logOutInformation(userLogIn.token);
-                    me.handlePromise(promise);
-                    $state.go('logIn');
-                };
                 me.getNextGame = function () {
-                    var promise = authenticateUser.nextGameInformation(userLogIn.token);
+                    var promise = gameApiProxy.nextGameInformation(userLogIn.token);
                     me.handlePromise(promise);
                     $state.go('tickets');
                 };
                 me.buyTicket = function () {
-                    var promise = authenticateUser.buyTicketInformation(userLogIn.username, userLogIn.balance, userLogIn.token);
+                    var promise = gameApiProxy.buyTicketInformation(userLogIn.username, userLogIn.balance, userLogIn.token);
                     me.handlePromise(promise);
                 };
 
