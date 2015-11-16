@@ -26,7 +26,7 @@
             stopSpy = sinon.sandbox.spy(gameTimer, 'stop');
         });
 
-        it('Checks that the state changes to draw when game is drawn.', function(){
+        it('Checks that the timer starts when the user buys a ticket', function(){
             gameTimer.timeTillGame();
             interval.flush(1000);
             updateTimerSpy.should.have.been.calledOnce;
