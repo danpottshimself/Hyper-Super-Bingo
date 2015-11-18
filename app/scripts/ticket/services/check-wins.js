@@ -24,11 +24,5 @@
                         userLogIn.balance += response.payload.winnerInfo.houseprize;
                         $timeout ($state.go('lobby'), 6000);
                     };
-
-
-
-
-
-
                 }]);
     })();

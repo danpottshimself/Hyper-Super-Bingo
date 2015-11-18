@@ -9,6 +9,7 @@ var mocks = {
 
     },
     userLogIn: {
+        balance: 10,
         handlePromise: function (tokenNumber) {
         }
     },
@@ -19,13 +20,21 @@ var mocks = {
 
     },
     ticketCreation:{
+        ifNumbersMatch: function (){}
 
     },
     checkWinners: {
+        checkForWinner:function (){}
 
     },
     stateChange: {
-        go:function(gameState) {}
+        go:function() {}
+    },
+    logInProxy: {
+        dataHandler: function (){}
+    },
+    bingoCallApiProxy : {
+    bingoCallInformation : function (){}
     }
 
 };
