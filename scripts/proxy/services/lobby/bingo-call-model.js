@@ -1,8 +1,8 @@
 (function () {
     'use strict';
     angular.module('Tombola.Module.ApiCall')
-        .service('BingoCall', ['$timeout', 'LogInServerApiProxy', 'UserLogIn','CheckWinners','BingoCallApiProxy', 'TicketCreation',
-            function ($timeout, logInServerApiProxy, userLogIn, checkForWinners, bingoCallApiProxy, ticketCreation) {
+        .service('BingoCall', ['$timeout', 'UserLogIn','CheckWinners','BingoCallApiProxy', 'TicketCreation',
+            function ($timeout, userLogIn, checkForWinners, bingoCallApiProxy, ticketCreation) {
                 var me  = this,
                     noWinnerFound = true,
                     callNumber = 0;
