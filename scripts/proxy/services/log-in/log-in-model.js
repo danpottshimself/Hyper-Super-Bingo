@@ -1,23 +1,18 @@
 (function () {
     'use strict';
     angular.module('Tombola.Module.ApiCall')
-        .service('UserLogIn', ['$state', 'LogInServerApiProxy',
-            function ($state, logInServerApiProxy) {
+        .service('UserLogIn', ['$state', 'LogInServerApiProxy','ApiResponse',
+            function ($state, logInServerApiProxy, apiResponse) {
                 var me  = this;
 
                 me.logIn = function () {
-                  logInServerApiProxy.logInInformation(me.username, me.password).then(function (response) {
-                      me.balance = response.payload.user.balance/100;
-                      me.token = response.payload.user.token;
-                      me.username = response.payload.user.username;
+                  logInServerApiProxy.logIn(me.username, me.password).then(function () {
                       $state.go('lobby');
                   });
                 };
 
                 me.logOut = function () {
-                    logInServerApiProxy.logOutInformation(me.token).then(function (){
-                        me.usermame = '';
-                        me.password='';
+                    logInServerApiProxy.logOut(apiResponse.userDetails.token).then(function (){
                         $state.go('logIn');
                     });
                 };

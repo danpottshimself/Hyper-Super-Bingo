@@ -5,7 +5,7 @@
             function () {
                 var me = this,
                     BingoNumber = function (theNumber) {
-                    this.number = theNumber;
+                    this.ticketNumber = theNumber;
                     this.matched = false;
                 };
                 me.ticket = {
@@ -40,7 +40,7 @@
                         for (i = 0; i < me.lines[lineNumber].length; i++) {
                             var minRange = (index * 10),
                                 maxRange = (index * 10) + 10;
-                            if (me.lines[lineNumber][i].number >= minRange && me.lines[lineNumber][i].number <= maxRange) {
+                            if (me.lines[lineNumber][i].ticketNumber >= minRange && me.lines[lineNumber][i].ticketNumber <= maxRange) {
                                 return me.lines[lineNumber][i];
                             }
                         }
@@ -52,7 +52,7 @@
                         j;
                     for (i=0; i<3; i++){
                         for (j=0; j<5; j++){
-                            if(me.lines[i][j].number === calledNumber){
+                            if(me.lines[i][j].ticketNumber === calledNumber){
                                 me.lines[i][j].matched = true;
                             }
                         }

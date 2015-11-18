@@ -8,7 +8,7 @@
                   if (ticketNumber.number === '00') {
                       return 'blankSpace';
                   }
-                    console.log(ticketNumber);
+
                       if (ticketNumber.matched === true) {
                           return 'matched';
                       }
