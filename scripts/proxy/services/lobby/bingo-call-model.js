@@ -18,7 +18,7 @@
                     ticketCreation.ifNumbersMatch(me.call);
                     calledBingoBalls();
                     checkForWinners.checkForWinner(response);
-                    longPolling();
+                    apiPolling();
                         });
                 };
 
@@ -29,7 +29,7 @@
                     me.calledNumbers.push(me.call);
                 };
 
-                var longPolling = function (){
+                var apiPolling = function (){
                     if(checkForWinners.houseWinner){
                         $timeout.cancel(me.bingoCall);
                     }
