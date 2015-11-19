@@ -28,7 +28,7 @@
                     '<h1> Welcome! Lets play some bingo</h1>' +
                     ' <div class="playerInformation">' +
                     ' <div>Username: {{userLogIn.username}}</div>' +
-                    ' <div>Balance:{{playerDetails.balance | currency}}</div>' +
+                    ' <div>Balance:{{userLogIn.balance | currency}}</div>' +
                     ' </div> ' +
                     '<div class="button"> ' +
                     '<input type="button" value="Start new game" ng-click="gameApi.getNextGame()">' +
@@ -43,7 +43,7 @@
 
                 $templateCache.put('ticketMaster', '' +
                     '<div ng-controller="ApiController">'+
-                        '<h2> Balance: {{playerDetails.balance | currency}} </h2>' +
+                        '<h2> Balance: {{userLogIn.balance | currency}} </h2>' +
                     '<h1 class="calledRow numbersRow animated pulse infinite">{{callingMethod.calledNumbers[0]}}</h1>'+
                     '<h1 class="calledRow numbersRow">{{callingMethod.calledNumbers[1]}}</h1>'+
                     '<h1 class="calledRow numbersRow">{{callingMethod.calledNumbers[2]}}</h1>'+
