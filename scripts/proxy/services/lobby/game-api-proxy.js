@@ -5,17 +5,17 @@
             function ($http, $q, logInServerApiProxy, apiResponse) {
                 var me = this;
 
-                me.nextGameInformation = function () {
-                    return logInServerApiProxy.dataHandler('/game/next', {}, 'GET');
+                me.nextGameInformation = function (token) {
+                    return logInServerApiProxy.dataHandler('/game/next', {}, token, 'GET');
                 };
 
-                me.buyTicketInformation = function () {
+                me.buyTicketInformation = function (token) {
                     var data = {
                         'gameId' : 1,
                         'userId': apiResponse.userDetails.username,
                         'balance':apiResponse.userDetails.balance
                         };
-                    return logInServerApiProxy.dataHandler('/game/buyticket', data, 'POST');
+                    return logInServerApiProxy.dataHandler('/game/buyticket', data, token, 'POST');
                 };
             }]);
 })();

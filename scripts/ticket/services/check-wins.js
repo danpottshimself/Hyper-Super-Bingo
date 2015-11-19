@@ -1,8 +1,8 @@
 (function () {
         'use strict';
         angular.module('Tombola.Module.ApiCall')
-            .service('CheckWinners', ['$state', '$timeout', 'ApiResponse',
-                function ($state, $timeout, apiResponse) {
+            .service('CheckWinners', ['$state', '$timeout', 'UserLogIn',
+                function ($state, $timeout, userLogIn) {
                     var me  = this;
 
                     me.checkForWinner = function (response) {
@@ -15,13 +15,13 @@
                     };
 
                     me.lineWinner= function(response){
-                        me.lineMessage = 'Well Done! You have won the line prize of £' + response.payload.winnerInfo.lineprize;
-                        apiResponse.userDetails.balance += response.payload.winnerInfo.lineprize;
+                        me.lineMessage = 'Well Done! You have won the line prize of £' + response.winnerInfo.lineprize;
+                        userLogIn.balance += response.winnerInfo.lineprize;
                     };
 
                     me.houseWinner= function(response){
-                        me.houseMessage = 'Well Done! You have won the house prize of £'+ response.payload.winnerInfo.houseprize;
-                        apiResponse.userDetails.balance += response.payload.winnerInfo.houseprize;
+                        me.houseMessage = 'Well Done! You have won the house prize of £'+ response.winnerInfo.houseprize;
+                        userLogIn.balance += response.winnerInfo.houseprize;
                         $timeout ($state.go('lobby'), 6000);
                     };
 
