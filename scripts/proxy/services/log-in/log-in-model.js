@@ -9,16 +9,23 @@
                   logInServerApiProxy.logIn(me.username, me.password).then(function (response) {
                       me.balance = response.balance;
                       tokenService.setToken(response.token);
-                      $state.go('lobby');
+                      lobbyStateChange();
                   });
                 };
 
                 me.logOut = function () {
                     logInServerApiProxy.logOut(tokenService.getToken()).then(function (){
                         tokenService.resetToken();
-                        $state.go('logIn');
+                        logInStateChange
                     });
                 };
+
+                var lobbyStateChange = function (){
+                    return $state.go('lobby');
+                    },
+                    logInStateChange = function () {
+                     return $state.go('logIn');
+                    }
 
             }]);
 })();
