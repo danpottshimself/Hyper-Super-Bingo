@@ -6,7 +6,7 @@
                 var me = this;
 
                 me.nextGameInformation = function (token) {
-                    return logInServerApiProxy.dataHandler('/game/next', {}, token, 'GET');
+                    return logInServerApiProxy.callApi('/game/next', {}, token, 'GET');
                 };
 
                 me.buyTicketInformation = function (token) {
@@ -15,7 +15,7 @@
                         'userId': userLogIn.username,
                         'balance':userLogIn.balance
                         };
-                    return logInServerApiProxy.dataHandler('/game/buyticket', data, token, 'POST');
+                    return logInServerApiProxy.callApi('/game/buyticket', data, token, 'POST');
                 };
             }]);
 })();

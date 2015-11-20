@@ -13,7 +13,7 @@
                         balance: userLogIn.balance,
                         callnumber: callNumber
                     };
-                    return logInServerApiProxy.dataHandler('/game/getcall', data, token,  'POST');
+                    return logInServerApiProxy.callApi('/game/getcall', data, token,  'POST');
                 };
 
             }]);

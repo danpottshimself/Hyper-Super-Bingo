@@ -1,8 +1,8 @@
 angular.module('Tombola.Module.ApiCall')
-    .service('LogInServerApiProxy', ['$http', '$q', 'ApiResponse', 'ObjectConverter',
-        function ($http, $q, apiResponse, objectConverter) {
+    .service('LogInServerApiProxy', ['$http', '$q', 'ObjectConverter',
+        function ($http, $q, objectConverter) {
             var me = this;
-            me.callApi = function (endUrl, data, requestType, token) {
+            me.callApi = function (endUrl, data, token,requestType) {
                 var deferred = $q.defer();
                 request = {
                     url: 'http://eutaveg-01.tombola.emea:30069' + endUrl,
@@ -29,7 +29,7 @@ angular.module('Tombola.Module.ApiCall')
                     "username": username,
                     "password": password
                 };
-                return me.callApi('/users/login', data, 'POST');
+                return me.callApi('/users/login', data, {}, 'POST');
             };
 
             me.logOut = function (token) {

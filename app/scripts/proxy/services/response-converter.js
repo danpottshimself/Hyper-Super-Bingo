@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     angular.module('Tombola.Module.ApiCall')
-        .factory('ObjectConverter',
+        .service('ObjectConverter',
         function () {
             var me = this;
             me.responseConverter = function (response, endUrl) {
@@ -31,7 +31,7 @@
                 nextGameDataConverter = function (response) {
                     var nextGameDetails = {
                         message: response.message,
-                        start: response.payload.user.username
+                        start: response.payload.start
                     };
                     return nextGameDetails;
                 },

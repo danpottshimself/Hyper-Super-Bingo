@@ -28,6 +28,7 @@
                         line.push(me.ticket.numbers[j + (i * 5)]);
                     }
                     me.lines.push(line);
+                    console.log(me.lines);
                 }
             };
 

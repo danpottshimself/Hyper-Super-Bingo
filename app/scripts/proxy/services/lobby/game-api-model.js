@@ -27,11 +27,12 @@
                 me.getNextGame = function () {
                     var promise = gameApiProxy.nextGameInformation(tokenService.getToken);
                     me.handlePromise(promise);
+                    console.log(tokenService.getToken());
                     $state.go('tickets');
                 };
                 me.buyTicket = function () {
-                    var promise = gameApiProxy.buyTicketInformation(userLogIn.username, userLogIn.balance, tokenService.getToken);
-                    me.handlePromise(promise);
+                        var promise = gameApiProxy.buyTicketInformation(tokenService.getToken);
+                        me.handlePromise(promise);
                 };
 
             }]);
