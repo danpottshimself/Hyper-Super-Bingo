@@ -1,0 +1,132 @@
+body{
+  align-content: center;
+  text-align: center;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+.button {
+  //margin-left: 50px;
+}
+.playerInformation{
+  border: solid 5px;
+  text-decoration: #006600;
+  padding: 10px;
+}
+.playerInformation{
+  width: 150px;
+  margin-left:42%;
+}
+
+.ticket {
+  line-height:0;
+  border-spacing:0;
+  align-content: center;
+  margin-left: 25%;
+  padding: 40px;
+}
+
+.ticket td {
+  width: 50px;
+  height: 50px;
+}
+.ticket td{
+  border: solid 3px;
+}
+
+.square {
+  background-color: #DDDDDD;
+  float: left;
+  text-align: center;
+  width: 60px;
+  padding: 0;
+  margin: 0;
+  border: 0;
+
+}
+
+.border {
+  border: 2px solid #000;
+  display: inline-block;
+}
+
+.centreText{
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 51px;
+}
+.centreLobby{
+  text-align: center;
+  vertical-align: middle;
+  align-content: center;
+}
+
+
+.row {
+  align-self: center;
+}
+
+.bingoTicket{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-left: 20%;
+  width: 600px;
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
+.calledNumber {
+  font-size: 40px;
+}
+
+.calledRow {
+  font-size: 25px;
+  line-height: 50px;
+  vertical-align:bottom;
+
+}
+
+.numbersRow{
+  display: inline-block;
+  margin-left: 60px;
+  background-image: url("../images/ball-mobile.png");
+  width: 50px;
+  height: 50px;
+}
+
+.blankSpace{
+background-image: url("../images/white-square.jpg");
+  width: 60px;
+color:#FFFFFF;
+  top:0;
+  z-index: 999;
+}
+
+@keyframes squares {
+  from {
+    background-color: #DDDDDD;
+  }
+  to {background-color: #009900}
+}
+.matched {
+  background-color: #009900;
+  animation-name: squares;
+  animation-duration: 3s;
+}
+.modal{
+  position: fixed;
+  top: 50%;
+  left: 45%;
+  width: 600px;
+  line-height: 100px;
+  height: 150px;
+  margin-left: -150px;
+  margin-top: -100px;
+  background-color: #f1c40f;
+  text-align: center;
+  transition-duration: 3s;
+
+  z-index: 10;
+  outline: 9999px solid rgba(0,0,0,0.5);
+}
