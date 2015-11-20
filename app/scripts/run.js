@@ -7,6 +7,6 @@
                 if (!tokenService.isAuthenticated()) {
                     $state.go('logIn');
                 }
-            })
+            });
             }]);
-});
+})();

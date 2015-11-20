@@ -1,21 +1,22 @@
 angular.module('Tombola.Module.ApiCall')
-    .service('LogInServerApiProxy',['$http', '$q',
-        function ($http, $q) {
+    .service('LogInServerApiProxy', ['$http', '$q', 'ApiResponse', 'ObjectConverter',
+        function ($http, $q, apiResponse, objectConverter) {
             var me = this;
-            me.dataHandler = function (endUrl, data, token, requestType) {
+            me.callApi = function (endUrl, data, requestType, token) {
                 var deferred = $q.defer();
                 request = {
                     url: 'http://eutaveg-01.tombola.emea:30069' + endUrl,
                     data: data,
                     headers: {
                         'x-token': token,
-                        'content-type': 'application/json'},
+                        'content-type': 'application/json'
+                    },
                     method: requestType
                 };
 
                 $http(request)
                     .then(function (response) {
-                        deferred.resolve(response.data);
+                        deferred.resolve(objectConverter.responseConverter(response.data, endUrl));
                     })
                     .catch(function (response) {
                         deferred.reject(response.data);
@@ -23,15 +24,15 @@ angular.module('Tombola.Module.ApiCall')
                 return deferred.promise;
             };
 
-            me.logInInformation = function (username, password) {
+            me.logIn = function (username, password) {
                 var data = {
                     "username": username,
                     "password": password
                 };
-                return me.dataHandler('/users/login', data, {}, 'POST');
+                return me.callApi('/users/login', data, 'POST');
             };
 
-            me.logOutInformation = function (token) {
-                return me.dataHandler('/users/logout', {}, token, 'POST');
+            me.logOut = function (token) {
+                return me.callApi('/users/logout', {}, token, 'POST');
             };
         }]);
