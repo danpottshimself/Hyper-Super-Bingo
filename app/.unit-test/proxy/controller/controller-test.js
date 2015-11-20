@@ -3,7 +3,6 @@
     describe('Test ProxyController', function () {
         var controller,
             sandbox,
-            authenticateUser,
             gameApi,
             userLogIn,
             callingMethod,
@@ -13,8 +12,7 @@
 
         beforeEach(function () {
             module('Tombola.Module.ApiCall',function ($provide) {
-                $provide.value('AuthenticateUser', mocks.authenticateUser);
-                $provide.value('GameApi', mocks.gameApi);
+                $provide.value('GameApiModel', mocks.gameApi);
                 $provide.value('UserLogIn', mocks.userLogIn);
                 $provide.value('BingoCall', mocks.callingMethod);
                 $provide.value('GameTimer', mocks.gameTimer);
@@ -29,7 +27,6 @@
             });
 
             sandbox = sinon.sandbox.create();
-            authenticateUser = sinon.sandbox.mock(mocks.authenticateUser);
             gameApi = sinon.sandbox.mock(mocks.gameApi);
             userLogIn = sinon.sandbox.mock(mocks.userLogIn);
             callingMethod = sinon.sandbox.mock(mocks.callingMethod);
@@ -42,9 +39,6 @@
 
         });
 
-        it('Ensures that the authenticateUser service is used in the scope correctly', function () {
-            controller.authenticateUser.should.equal(mocks.authenticateUser);
-        });
         it('Ensures that the gameApi service is used in the scope correctly', function () {
             controller.gameApi.should.equal(mocks.gameApi);
         });
