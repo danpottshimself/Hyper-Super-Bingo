@@ -31,7 +31,7 @@
             interval.flush(1000);
             updateTimerSpy.should.have.been.calledOnce;
         });
-        
+
 
         afterEach(function(){
             sandbox.restore();

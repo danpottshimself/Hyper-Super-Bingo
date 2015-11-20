@@ -2,27 +2,27 @@
     'use strict';
     angular.module('Tombola.Module.ApiCall')
         .run(['$templateCache', function ($templateCache) {
-                $templateCache.put('html/login.html', ''+
-                    '<div ng-controller="ApiController">' +
-                        '<div class="login">' +
-                            '<h1>Login to Bingo</h1>' +
-                            '<form>' +
-                                ' <p>' +
-                                    '<input type="text" ng-model="userLogIn.username" name="username" value="" placeholder="Username or Email">' +
-                                '</p>' +
-                                ' <p>' +
-                                    '<input type="password" ng-model="userLogIn.password" name="password" value="" placeholder="Password">' +
-                                '</p> ' +
-                                '<p class="remember_me">' +
-                                    '<label>' +
+                $templateCache.put('html/login.html', ' <div ng-controller="ApiController">' +
+                    '<div class="login"> ' +
+                        '<h1>Login to Bingo</h1>' +
+                        '<form>' +
+                            '<p>' +
+                                '<input type="text" ng-model="userLogIn.username" name="username" value="" placeholder="Username or Email">' +
+                            '</p>' +
+                            ' <p>' +
+                                '<input type="password" ng-model="userLogIn.password" name="password" value="" placeholder="Password">' +
+                            '</p>' +
+                            '<p class="remember_me"> ' +
+                                '<label> ' +
                                     '<input type="checkbox" name="remember_me" id="remember_me">' +
                                     'Remember me on this computer' +
-                                    '</label>' +
-                                '</p>' +
-                                '<input type="button" value="Submit" ng-click="userLogIn.logIn()">' +
-                            '</form> ' +
-                        '</div>' +
+                                '</label>' +
+                            '</p>' +
+                            '<input type="button" value="Submit" ng-click="userLogIn.logIn()">' +
+                        '</form> ' +
+                    '</div>' +
                     '</div>' );
+
                 $templateCache.put('html/lobby.html', '' +
                     '<div ng-controller="ApiController" class="centreLobby"> ' +
                     '<h1> Welcome! Lets play some bingo</h1>' +
