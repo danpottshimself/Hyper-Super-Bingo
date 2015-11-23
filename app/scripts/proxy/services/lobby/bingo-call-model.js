@@ -32,7 +32,7 @@
                         $timeout.cancel(me.bingoCall);
                     }
                     if (noWinnerFound) {
-                        $timeout(me.bingoCall, 4000);
+                        $timeout(me.bingoCall, 500);
                     }
                 };
             }]);

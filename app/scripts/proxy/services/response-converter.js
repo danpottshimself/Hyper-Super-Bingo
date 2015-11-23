@@ -43,7 +43,7 @@
                         winnerInfo: null
                     };
                     if (response.message === 'Line' || response.message === 'Winner') {
-                        getCallDetails.winnerInfo = response.message;
+                        getCallDetails.winnerInfo = response.payload.winnerInfo;
                     }
                     return getCallDetails;
                 },

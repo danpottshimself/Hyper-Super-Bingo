@@ -33,15 +33,15 @@
         });
 
         it('Checks that the server response for a line is recognised', function(){
-            response = {message: 'Line' , payload:{winnerInfo : {lineprize:4}}};
+            response = {message: 'Line' , call: 27, winnerInfo: {lineprize: 1, houseprize: 6}};
             checkWinners.checkForWinner(response);
             lineWinnerSpy.should.have.been.calledWithExactly(response);
-            checkWinners.lineMessage.should.equal('Well Done! You have won the line prize of £'  + 4);
+            checkWinners.lineMessage.should.equal('Well Done! You have won the line prize of £'  + 1);
 
         });
 
         it.skip('Checks that the server response for a house is recognised', function(){
-            response = {message: 'Winner' , payload:{winnerInfo : {houseprize:10}}};
+            response = {message: 'Winner' , call: 28, winnerInfo: {lineprize: 1, houseprize: 6}};
             checkWinners.checkForWinner(response);
             houseWinnerSpy.should.have.been.calledWithExactly(response);
             checkWinners.houseMessage.should.equal('Well Done! You have won the house prize of £'  + 10);

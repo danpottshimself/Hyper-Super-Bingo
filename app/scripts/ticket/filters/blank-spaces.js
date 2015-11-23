@@ -5,7 +5,7 @@
             function () {
 
                 return function(ticketNumber){
-                  if (ticketNumber.number === '00') {
+                  if (ticketNumber.ticketNumber === '00') {
                       return 'blankSpace';
                   }
 

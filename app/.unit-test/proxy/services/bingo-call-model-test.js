@@ -6,26 +6,20 @@
             rootScope,
             sandbox,
             bingoCall,
-            logInServerApiProxy,
-            ticketCreation,
-            bingoCallApiProxy,
             checkWinnerSpy,
             numbersMatchedSpy,
-            expectedString,
-            expectedString2,
-            userLogIn,
-            bingocallSpy,
-            checkWinners;
+            response,
+            response2,
+            bingocCallSpy;
 
         beforeEach(function(){
             module('ui.router');
             module('Tombola.Module.ApiCall', function($provide){
-                $provide.value('LogInServerApiProxy', mocks.logInProxy);
                 $provide.value('TicketCreation', mocks.ticketCreation);
                 $provide.value('UserLogIn', mocks.userLogIn);
                 $provide.value('CheckWinners', mocks.checkWinners);
-                $provide.value('GameTimer', mocks.gameTimer);
-                $provide.value('BingoCallApiProxy', mocks.bingoCallApiProxy);
+                $provide.value('BingoCallProxy', mocks.bingoCallApiProxy);
+                $provide.value('TokenService', mocks.tokenService);
             });
 
 
@@ -37,43 +31,35 @@
             }]);
 
             sandbox = sinon.sandbox.create();
-            logInServerApiProxy = sinon.sandbox.mock(mocks.logInProxy);
-            ticketCreation = sinon.sandbox.mock(mocks.ticketCreation);
-            userLogIn = sinon.sandbox.mock(mocks.userLogIn);
-            checkWinners = sinon.sandbox.mock(mocks.checkWinners);
-            bingoCallApiProxy =  sinon.sandbox.mock(mocks.bingoCallApiProxy);
             checkWinnerSpy =  sinon.sandbox.spy(mocks.checkWinners, 'checkForWinner');
             numbersMatchedSpy =  sinon.sandbox.spy(mocks.ticketCreation, 'ifNumbersMatch');
-            expectedString = {"message":"Call","payload":{"gameId":1,"callnumber":1,"call":54,"user":{"username":"drwho","balance":1990,"token":"f36bb73b-83cc-4539-aac0-893914bc73ec"}}};
-            expectedString2 =  {"message":"Call","payload":{"gameId":1,"callnumber":2,"call":87,"user":{"username":"drwho","balance":1980,"token":"f36bb73b-83cc-4539-aac0-893914bc73ec"}}};
-            bingocallSpy = sinon.sandbox.spy(bingoCall, 'bingoCall');
+            response = {"message":"Call","callnumber":1,"call":54, "username":"drwho","balance":1980};
+            response2 =  {"message":"Call","callnumber":2,"call":87,"username":"drwho","balance":1980};
+            bingocCallSpy = sinon.sandbox.spy(bingoCall, 'bingoCall');
         });
 
         it('Checks that the bingoCall function makes the correct function calls.', function(){
             var deferred = $q.defer(),
-                bingoCallInformationSpy = sinon.sandbox.stub(mocks.bingoCallApiProxy, 'bingoCallInformation');
-            bingoCallInformationSpy.returns(deferred.promise);
+                bingoCallSpy = sinon.sandbox.stub(mocks.bingoCallApiProxy, 'bingoCall');
+            bingoCallSpy.returns(deferred.promise);
 
             bingoCall.bingoCall();
-            deferred.resolve(expectedString);
+            deferred.resolve(response);
             rootScope.$digest();
-            numbersMatchedSpy.should.have.been.calledOnce.calledWithExactly(bingoCall.call);
-            checkWinnerSpy.should.have.been.calledOnce;
-            bingoCall.call.should.equal(54);
+            numbersMatchedSpy.should.have.been.calledOnce.calledWithExactly(response.call);
+            checkWinnerSpy.should.have.been.calledOnce.calledWithExactly(response);
         });
 
         it('Checks that the bingoCall function is returning the correct information', function(){
             var deferred = $q.defer(),
-                bingoCallInformationSpy = sinon.sandbox.stub(mocks.bingoCallApiProxy, 'bingoCallInformation');
+                bingoCallInformationSpy = sinon.sandbox.stub(mocks.bingoCallApiProxy, 'bingoCall');
             bingoCallInformationSpy.returns(deferred.promise);
 
             bingoCall.bingoCall();
-            deferred.resolve(expectedString2);
+            deferred.resolve(response2);
             rootScope.$digest();
-            numbersMatchedSpy.should.have.been.calledOnce.calledWithExactly(bingoCall.call);
-            checkWinnerSpy.should.have.been.calledOnce;
-            bingoCall.call.should.equal(87);
-            bingoCall.balance.should.equal(19.80);
+            numbersMatchedSpy.should.have.been.calledWithExactly(response2.call);
+            checkWinnerSpy.should.have.been.calledOnce.calledWithExactly(response2);
         });
 
 

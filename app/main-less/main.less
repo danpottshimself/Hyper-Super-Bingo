@@ -4,9 +4,7 @@ body{
   margin-left: 20%;
   margin-right: 20%;
 }
-.button {
-  //margin-left: 50px;
-}
+
 .playerInformation{
   border: solid 5px;
   text-decoration: #006600;
@@ -70,10 +68,14 @@ body{
 .bingoTicket{
   padding-top: 20px;
   padding-bottom: 20px;
-  margin-left: 20%;
+  margin-left: 25%;
   width: 600px;
-  margin-top: 30px;
-  margin-bottom: 40px;
+}
+
+.ticketBorder {
+  width: 800px;
+  height: 800px;
+  background-color: #5890AD;
 }
 
 .calledNumber {
@@ -103,6 +105,11 @@ color:#FFFFFF;
   z-index: 999;
 }
 
+.ticketSpace {
+  padding-bottom: 150px;
+  padding-top: 40px;
+}
+
 @keyframes squares {
   from {
     background-color: #DDDDDD;
@@ -114,19 +121,35 @@ color:#FFFFFF;
   animation-name: squares;
   animation-duration: 3s;
 }
-.modal{
-  position: fixed;
-  top: 50%;
-  left: 45%;
-  width: 600px;
-  line-height: 100px;
-  height: 150px;
-  margin-left: -150px;
-  margin-top: -100px;
-  background-color: #f1c40f;
-  text-align: center;
-  transition-duration: 3s;
+@keyframes overlay{
+  from {
+    background-color: #FFFFFF;
+  }
+  to {
+    position: fixed;
+    top: 50%;
+    left: 42%;
+    width: 700px;
+    line-height: 100px;
+    height: 200px;
+    margin-left: -150px;
+    margin-top: -100px;
+    background-color: #f1c40f;
+    text-align: center;
+    transition-duration: 5s;
 
-  z-index: 10;
-  outline: 9999px solid rgba(0,0,0,0.5);
+    z-index: 10;
+    outline: 9999px solid rgba(0, 0, 0, 0.5);
+  }
+}
+.modal {
+  background-color: #FFFFFF;
+  animation-name: overlay;
+  animation-duration: 5s;
+}
+.noModal {
+  position: inherit;
+  top: 0;
+  left: 0;
+  background-color:#FFFFFF;
 }

@@ -12,7 +12,10 @@
             module('ui.router');
             module('Tombola.Module.ApiCall',function ($provide) {
                 $provide.value('TicketCreation', mocks.ticketCreation);
-                $provide.value('CheckWinners', mocks.checkWinners);
+                $provide.value('TokenService', mocks.tokenService);
+                $provide.value('UserLogIn', mocks.userLogIn);
+                $provide.value('GameApiProxy', mocks.gameApi);
+                $provide.value('GameApiModel', mocks.gameTimer);
 
             });
 

@@ -3,7 +3,10 @@
         angular.module('Tombola.Module.ApiCall')
             .service('CheckWinners', ['$state', '$timeout', 'UserLogIn',
                 function ($state, $timeout, userLogIn) {
-                    var me  = this;
+                    var me  = this,
+                        stateChanger = function (){
+                            $state.go('lobby');
+                        };
 
                     me.checkForWinner = function (response) {
                         if (response.message === "Line") {
@@ -22,8 +25,9 @@
                     me.houseWinner= function(response){
                         me.houseMessage = 'Well Done! You have won the house prize of £'+ response.winnerInfo.houseprize;
                         userLogIn.balance += response.winnerInfo.houseprize;
-                        $timeout ($state.go('lobby'), 6000);
+                        $timeout (stateChanger, 9000);
                     };
+
 
 
 

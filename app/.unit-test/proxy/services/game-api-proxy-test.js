@@ -12,6 +12,7 @@
             module('ui.router');
             module('Tombola.Module.ApiCall', function($provide){
                 $provide.value('LogInServerApiProxy', mocks.logInProxy);
+                $provide.value('TokenService', mocks.tokenService);
             });
 
             inject(function($injector){
@@ -22,7 +23,7 @@
             });
             sandbox = sinon.sandbox.create();
             logInProxy = sinon.sandbox.mock(mocks.logInProxy);
-            dataHandlerSpy = sinon.sandbox.spy(mocks.logInProxy, 'dataHandler');
+            dataHandlerSpy = sinon.sandbox.spy(mocks.logInProxy, 'callApi');
 
         });
 
@@ -39,6 +40,7 @@
 
         afterEach(function(){
             sandbox.restore();
+            dataHandlerSpy.restore();
         })
     });
 }());

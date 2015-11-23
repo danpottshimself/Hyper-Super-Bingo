@@ -9,7 +9,7 @@ var mocks = {
 
     },
     userLogIn: {
-        balance: 10,
+        balance: 1990,
         handlePromise: function (tokenNumber) {
         }
     },
@@ -20,7 +20,7 @@ var mocks = {
 
     },
     ticketCreation:{
-        ifNumbersMatch: function (){}
+        ifNumbersMatch: function (response){}
 
     },
     checkWinners: {
@@ -31,10 +31,16 @@ var mocks = {
         go:function() {}
     },
     logInProxy: {
-        dataHandler: function (){}
+        dataHandler: function (){},
+        callApi: function(){}
     },
     bingoCallApiProxy : {
-    bingoCallInformation : function (){}
+    bingoCall : function (){}
+    },
+
+    tokenService: {
+        token: 'f36bb73b-83cc-4539-aac0-893914bc73ec',
+        getToken:function (){}
     }
 
 };

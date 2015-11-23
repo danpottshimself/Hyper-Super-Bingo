@@ -52,7 +52,7 @@
                     '<h1 class="calledNumber animated slideInLeft infinite">{{callingMethod.call}}</h1>'+
                     '</div>' +
                     '<div ng-controller="BingoTicket">' +
-                        '<h2 class="{{checkWinners.lineMessage | OverLay}}"> {{checkWinners.lineMessage}}</h2>' +
+                        '<h2 class="{{checkWinners.lineMessage | OverLay}}"> {{checkWinners.lineMessage}} {{class}}</h2>' +
                         '<h2 class="{{checkWinners.lineMessage | OverLay}}"> {{checkWinners.houseMessage}}</h2>' +
                     '</div>'+
                     '<div ng-hide="gameTimer.hideMe" ng-controller="ApiController">'   +
@@ -62,9 +62,10 @@
                         ' <input type="button" value="Buy ticket" ng-click="gameApi.buyTicket()">' +
                     ' </div>' +
                     '<div ng-controller="BingoTicket" class="bingoTicket">'+
-                    '<div ng-repeat="line in ticketCreation.lines  track by $index">'+
+                    '<div ng-repeat="ticket in ticketCreation.ticketStrip  track by $index" class="ticketSpace">'+
+                    '<div ng-repeat="line in ticket  track by $index">'+
                     '<div ng-repeat= "square in ticketCreation.createSquares() track by $index">' +
-                    '<div class="square border centreText {{ticketCreation.isASquare($parent.$index, $index)| SpaceFilter}}"> {{ticketCreation.isASquare($parent.$index, $index).number}}' +
+                    '<div class="square border centreText {{ticketCreation.isASquare($parent.$index, $index)| SpaceFilter}}"> {{ticketCreation.isASquare($parent.$index, $index).ticketNumber}}' +
                     '</div>'+
                     '</div>'+
                     '</div>'+

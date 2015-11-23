@@ -23,6 +23,7 @@
                 $provide.value('UserLogIn', mocks.userLogIn);
                 $provide.value('CheckWinners', mocks.checkWinners);
                 $provide.value('GameTimer', mocks.gameTimer);
+                $provide.value('TokenService', mocks.tokenService);
             });
 
 
