@@ -11,6 +11,10 @@
 
                 me.bingoCall = function () {
                     callNumber += 1;
+                    if (callNumber === 90) {
+                        callNumber = 0;
+                        me.calledNumbers = [];
+                    }
                     bingoCallProxy.bingoCall(callNumber, tokenService.getToken())
                         .then(function (response) {
                             ticketCreation.ifNumbersMatch(response.call);

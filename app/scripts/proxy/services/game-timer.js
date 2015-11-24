@@ -7,6 +7,7 @@
                     timer;
                 me.hideMe = false;
                 me.timeTillGame = function (time) {
+                    me.hideMe =false;
                     var realTime = new Date(),
                         gameTime = new Date(time),
                         timeDifference = Math.abs(gameTime.getTime() - realTime.getTime());

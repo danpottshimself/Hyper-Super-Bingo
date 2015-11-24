@@ -2,10 +2,13 @@
     'use strict';
     angular.module('Tombola.Module.ApiCall')
         .service('GameApiModel',
-        ['$state', 'GameApiProxy', 'TicketCreation', 'UserLogIn', 'GameTimer', 'CheckWinners', 'TokenService',
-            function ($state, gameApiProxy, ticketCreation, userLogIn, gameTimer, checkWinners, tokenService) {
-                var me = this;
-                me.hideMe = false;
+        ['$state', 'GameApiProxy', 'TicketCreation', 'UserLogIn', 'GameTimer', 'TokenService',
+            function ($state, gameApiProxy, ticketCreation, userLogIn, gameTimer, tokenService) {
+                var me = this,
+                    stateChanger = function () {
+                        $state.go('tickets');
+                    };
+
                 me.handlePromise = function (promise) {
                     promise.then(function (response) {
                         if (response.message === "TicketBought") {
@@ -13,9 +16,6 @@
                         }
                         if (response.message === "NextGame") {
                             gameTimer.timeTillGame(response.start);
-                        }
-                        if (response.message == 'GetCall') {
-                            checkWinners.checkForWinner(response);
                         }
                         return response;
                     })
@@ -27,13 +27,11 @@
                 me.getNextGame = function () {
                     var promise = gameApiProxy.nextGameInformation(tokenService.getToken);
                     me.handlePromise(promise);
-                    console.log(tokenService.getToken());
-                    $state.go('tickets');
+                    stateChanger();
                 };
                 me.buyTicket = function () {
-                        var promise = gameApiProxy.buyTicketInformation(tokenService.getToken);
-                        me.handlePromise(promise);
+                    var promise = gameApiProxy.buyTicketInformation(tokenService.getToken);
+                    me.handlePromise(promise);
                 };
-
             }]);
 })();

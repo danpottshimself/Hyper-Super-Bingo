@@ -52,7 +52,7 @@
                     '<h1 class="calledNumber animated slideInLeft infinite">{{callingMethod.call}}</h1>'+
                     '</div>' +
                     '<div ng-controller="BingoTicket">' +
-                        '<h2 class="{{checkWinners.lineMessage | OverLay}}"> {{checkWinners.lineMessage}} {{class}}</h2>' +
+                        '<h2 class="{{checkWinners.lineMessage | OverLay}}"> {{checkWinners.lineMessage}}</h2>' +
                         '<h2 class="{{checkWinners.lineMessage | OverLay}}"> {{checkWinners.houseMessage}}</h2>' +
                     '</div>'+
                     '<div ng-hide="gameTimer.hideMe" ng-controller="ApiController">'   +
@@ -69,7 +69,9 @@
                     '</div>'+
                     '</div>'+
                     '</div>'+
-                    '</div>'
-                );
+                    '</div>' +
+                    '<br>'+
+                    '<a class = "button" ui-sref="logIn" href="#">Home</a>'
+                    );
                      }]);
         })();
