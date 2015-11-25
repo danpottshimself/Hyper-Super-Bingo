@@ -16,6 +16,7 @@
             module('ui.router');
             module('Tombola.Module.ApiCall', function($provide){
                 $provide.value('UserLogIn', mocks.userLogIn);
+                $provide.value('TicketCreation', mocks.ticketCreation);
             });
 
             inject(function($injector){
