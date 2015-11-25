@@ -31,8 +31,9 @@ var mocks = {
         go:function() {}
     },
     logInProxy: {
-        dataHandler: function (){},
-        callApi: function(){}
+        callApi: function(){},
+        logIn: function(username, password){},
+        logOut: function(){}
     },
     bingoCallApiProxy : {
     bingoCall : function (){}
@@ -40,7 +41,11 @@ var mocks = {
 
     tokenService: {
         token: 'f36bb73b-83cc-4539-aac0-893914bc73ec',
-        getToken:function (){}
+        getToken:function (){},
+        setToken:function(){}
+    },
+    objectConverter: {
+        responseConverter:function(response, endUrl){}
     }
 
 };
