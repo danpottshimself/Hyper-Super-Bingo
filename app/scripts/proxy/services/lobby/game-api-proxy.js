@@ -1,21 +1,21 @@
 (function () {
     'use strict';
     angular.module('Tombola.Module.ApiCall')
-        .service('GameApiProxy', [ '$http', '$q', 'LogInServerApiProxy','UserLogIn',
-            function ($http, $q, logInServerApiProxy, userLogIn) {
+        .service('GameApiProxy', [ '$http', '$q', 'Proxy','UserLogIn',
+            function ($http, $q, proxy, userLogIn) {
                 var me = this;
 
-                me.nextGameInformation = function (token) {
-                    return logInServerApiProxy.callApi('/game/next', {}, token, 'GET');
+                me.nextGame = function (token) {
+                    return proxy.callApi('/game/next', {}, token, 'GET');
                 };
 
-                me.buyTicketInformation = function (token) {
+                me.buyTicket = function (token) {
                     var data = {
                         'gameId' : 1,
                         'userId': userLogIn.username,
                         'balance':userLogIn.balance
                         };
-                    return logInServerApiProxy.callApi('/game/buyticket', data, token, 'POST');
+                    return proxy.callApi('/game/buyticket', data, token, 'POST');
                 };
             }]);
 })();

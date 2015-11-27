@@ -25,12 +25,12 @@
                 };
 
                 me.getNextGame = function () {
-                    var promise = gameApiProxy.nextGameInformation(tokenService.getToken);
+                    var promise = gameApiProxy.nextGame(tokenService.getToken);
                     me.handlePromise(promise);
                     stateChanger();
                 };
                 me.buyTicket = function () {
-                    var promise = gameApiProxy.buyTicketInformation(tokenService.getToken);
+                    var promise = gameApiProxy.buyTicket(tokenService.getToken);
                     me.handlePromise(promise);
                 };
             }]);

@@ -1,9 +1,9 @@
 var mocks = {
 
     authenticateUser: {
-        logOutInformation : function(){},
-        nextGameInformation : function (){},
-        buyTicketInformation: function(){}
+        logOut : function(){},
+        nextGame : function (){},
+        buyTicket: function(){}
     },
     gameApi: {
 
@@ -35,6 +35,7 @@ var mocks = {
         logIn: function(username, password){},
         logOut: function(){}
     },
+
     bingoCallApiProxy : {
     bingoCall : function (){}
     },
@@ -42,7 +43,8 @@ var mocks = {
     tokenService: {
         token: 'f36bb73b-83cc-4539-aac0-893914bc73ec',
         getToken:function (){},
-        setToken:function(){}
+        setToken:function(){},
+        resetToken:function(){}
     },
     objectConverter: {
         responseConverter:function(response, endUrl){}

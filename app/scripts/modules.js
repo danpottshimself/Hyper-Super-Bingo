@@ -1,6 +1,7 @@
+angular.module('Tombola.Module.Directives', []);
 angular.module('Tombola.Module.ApiCall', []);
 angular.module('Tombola.Module.Ticket', []);
-angular.module('Tombola.Module.Main', ['ui.router', 'Tombola.Module.ApiCall', 'Tombola.Module.Ticket'])
+angular.module('Tombola.Module.Main', ['ui.router', 'Tombola.Module.ApiCall', 'Tombola.Module.Ticket','Tombola.Module.Directives'])
     .config(function($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise("/logIn");
 

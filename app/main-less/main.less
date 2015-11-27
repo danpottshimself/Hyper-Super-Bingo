@@ -138,12 +138,27 @@ color:#FFFFFF;
     text-align: center;
     transition-duration: 5s;
 
-    z-index: 10;
-    outline: 9999px solid rgba(0, 0, 0, 0.5);
+    z-index: 10; /* keep on top of other elements on the page */
+    box-shadow: 0 0 0 9999px rgba(0,0,0,0.5);
+
   }
 }
+.lobbyPadding{
+  padding-top: 80px;
+}
+.rulesList {
+  float: left;
+  margin: 0;
+  text-align: left;
+  font-weight: bold;
+  padding-bottom: 20px;
+}
+.together {
+  display: inline-block;
+  padding-right: 45px;
+}
+
 .modal {
-  background-color: #FFFFFF;
   animation-name: overlay;
   animation-duration: 5s;
 }

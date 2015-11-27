@@ -40,24 +40,26 @@
 
         it('Checks that the bingoCall function makes the correct function calls.', function(){
             var deferred = $q.defer(),
-                bingoCallSpy = sinon.sandbox.stub(mocks.bingoCallApiProxy, 'bingoCall');
-            bingoCallSpy.returns(deferred.promise);
+                bingoCallStub = sinon.sandbox.stub(mocks.bingoCallApiProxy, 'bingoCall');
+            bingoCallStub.returns(deferred.promise);
 
             bingoCall.bingoCall();
             deferred.resolve(response);
             rootScope.$digest();
+            bingoCallStub.should.have.been.calledOnce;
             numbersMatchedSpy.should.have.been.calledOnce.calledWithExactly(response.call);
             checkWinnerSpy.should.have.been.calledOnce.calledWithExactly(response);
         });
 
         it('Checks that the bingoCall function is returning the correct information', function(){
             var deferred = $q.defer(),
-                bingoCallInformationSpy = sinon.sandbox.stub(mocks.bingoCallApiProxy, 'bingoCall');
-            bingoCallInformationSpy.returns(deferred.promise);
+                bingoCallStub = sinon.sandbox.stub(mocks.bingoCallApiProxy, 'bingoCall');
+            bingoCallStub.returns(deferred.promise);
 
             bingoCall.bingoCall();
             deferred.resolve(response2);
             rootScope.$digest();
+            bingoCallStub.should.have.been.calledOnce;
             numbersMatchedSpy.should.have.been.calledWithExactly(response2.call);
             checkWinnerSpy.should.have.been.calledOnce.calledWithExactly(response2);
         });

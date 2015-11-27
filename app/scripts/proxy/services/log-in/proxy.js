@@ -1,5 +1,5 @@
 angular.module('Tombola.Module.ApiCall')
-    .service('LogInServerApiProxy', ['$http', '$q', 'ObjectConverter',
+    .service('Proxy', ['$http', '$q', 'ObjectConverter',
         function ($http, $q, objectConverter) {
             var me = this;
             me.callApi = function (endUrl, data, token,requestType) {

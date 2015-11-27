@@ -4,12 +4,7 @@
         var stateChangeSpy,
             timeout,
             sandbox,
-            authenticateUser,
-            ticketCreation,
-            userLogIn,
-            checkWinners,
             handlePromiseSpy,
-            gameTimer,
             $q,
             $rootScope,
             gameApiModel;
@@ -35,29 +30,13 @@
             }]);
 
             sandbox = sinon.sandbox.create();
-            authenticateUser = sinon.sandbox.mock(mocks.authenticateUser);
-            ticketCreation = sinon.sandbox.mock(mocks.ticketCreation);
-            userLogIn = sinon.sandbox.mock(mocks.userLogIn);
-            checkWinners = sinon.sandbox.mock(mocks.checkWinners);
-            gameTimer = sinon.sandbox.mock(mocks.gameTimer);
             stateChangeSpy = sinon.sandbox.spy(mocks.stateChange, 'go');
             handlePromiseSpy = sinon.sandbox.spy(gameApiModel, 'handlePromise');
         });
 
-
-        //    it('Checks that functions are being called and the promise is being sent when logging out.', function(){
-        //        var deferred = $q.defer(),
-        //            logOutSpy = sinon.sandbox.stub(mocks.authenticateUser, 'logOutInformation');
-        //        logOutSpy.returns(deferred.promise);
-        //        gameApi.logOut();
-        //        $rootScope.$digest();
-        //        handlePromiseSpy.should.have.been.calledOnce;
-        //        stateChangeSpy.should.have.been.calledOnce;
-        //});
-
         it('Checks that functions are being called and the promise is being sent when getting the next game.', function(){
             var deferred = $q.defer(),
-                getNextGameSpy = sinon.sandbox.stub(mocks.authenticateUser, 'nextGameInformation');
+                getNextGameSpy = sinon.sandbox.stub(mocks.authenticateUser, 'nextGame');
             getNextGameSpy.returns(deferred.promise);
             gameApiModel.getNextGame();
             $rootScope.$digest();
@@ -67,7 +46,7 @@
 
         it('Checks that functions are being called and the promise is being sent when buying a ticket.', function(){
             var deferred = $q.defer(),
-                buyTicketSpy = sinon.sandbox.stub(mocks.authenticateUser, 'buyTicketInformation');
+                buyTicketSpy = sinon.sandbox.stub(mocks.authenticateUser, 'buyTicket');
             buyTicketSpy.returns(deferred.promise);
             gameApiModel.buyTicket();
             $rootScope.$digest();

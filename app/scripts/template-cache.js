@@ -5,7 +5,7 @@
                 $templateCache.put('html/login.html', ''+
                     '<div ng-controller="ApiController">' +
                         '<div class="login">' +
-                            '<h1>Login to Bingo</h1>' +
+                            '<h1>Log in to play Bingo</h1>' +
                             '<form>' +
                                 ' <p>' +
                                     '<input type="text" ng-model="userLogIn.username" name="username" value="" placeholder="Username or Email">' +
@@ -25,16 +25,29 @@
                     '</div>' );
                 $templateCache.put('html/lobby.html', '' +
                     '<div ng-controller="ApiController" class="centreLobby"> ' +
-                    '<h1> Welcome! Lets play some bingo</h1>' +
+                        '<h1> Welcome! Lets play some bingo</h1>' +
                     ' <div class="playerInformation">' +
                     ' <div>Username: {{userLogIn.username}}</div>' +
                     ' <div>Balance:{{userLogIn.balance | currency}}</div>' +
                     ' </div> ' +
-                    '<div class="button"> ' +
-                    '<input type="button" value="Start new game" ng-click="gameApi.getNextGame()">' +
+                    ' <div>' +
+                        '<h2> Rules of the game</h2>' +
+                        '<ul class="rulesList">'+
+                            '<li> Once the game has begun, numbers will be shown on screen, if these numbers match the numbers on your ticket, you are one step closer to winning.</li>'+
+                            '<li>Match 5 numbers on an individual line on the bingo ticket to win the line prize</li>'+
+                            '<li>Match all of the numbers on the ticket before anyone else and you will win the house prize</li>'+
+                        '</ul>'+
+                        '<br>'+
+                        '<div class="lobbyPadding">Once you click on the "start new game" button, you will be taken to the next available game of bingo.'+
+                        'While you are waiting for the game to start, you can purchase bingo tickets.'+
+                        'The more tickets you purchase, the better the chances of winning.</div>'+
+                    '</div>'+
+                    '<br>'+
+                    '<div class="button together"> ' +
+                        '<input type="button" value="Start new game" ng-click="gameApi.getNextGame()">' +
                     ' </div> ' +
-                    '<div class="button">'+
-                    '<input type="button" value="Log Out" ng-click="userLogIn.logOut()"> ' +
+                    '<div class="button together">'+
+                        '<input type="button" value="Log Out" ng-click="userLogIn.logOut()"> ' +
                     '</div>'+
                     '<br> ' +
                     '</div>' +

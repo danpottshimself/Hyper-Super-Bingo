@@ -1,8 +1,8 @@
 (function () {
     'use strict';
     angular.module('Tombola.Module.ApiCall')
-        .service('BingoCallProxy', ['LogInServerApiProxy','UserLogIn',
-            function (logInServerApiProxy, userLogIn) {
+        .service('BingoCallProxy', ['Proxy','UserLogIn',
+            function (proxy, userLogIn) {
                 var me  = this;
                 me.calledNumbers = [];
 
@@ -13,7 +13,7 @@
                         balance: userLogIn.balance,
                         callnumber: callNumber
                     };
-                    return logInServerApiProxy.callApi('/game/getcall', data, token,  'POST');
+                    return proxy.callApi('/game/getcall', data, token,  'POST');
                 };
 
             }]);

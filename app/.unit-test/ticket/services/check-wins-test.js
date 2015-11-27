@@ -12,14 +12,14 @@
             response,
             checkWinners;
 
-        beforeEach(function(){
+        beforeEach(function () {
             module('ui.router');
-            module('Tombola.Module.ApiCall', function($provide){
+            module('Tombola.Module.ApiCall', function ($provide) {
                 $provide.value('UserLogIn', mocks.userLogIn);
                 $provide.value('TicketCreation', mocks.ticketCreation);
             });
 
-            inject(function($injector){
+            inject(function ($injector) {
                 $rootScope = $injector.get('$rootScope');
                 $timeout = $injector.get('$timeout');
                 checkWinners = $injector.get('CheckWinners');
@@ -33,22 +33,22 @@
             $rootScope.$digest();
         });
 
-        it('Checks that the server response for a line is recognised', function(){
-            response = {message: 'Line' , call: 27, winnerInfo: {lineprize: 1, houseprize: 6}};
+        it('Checks that the server response for a line is recognised', function () {
+            response = {message: 'Line', call: 27, winnerInfo: {lineprize: 1, houseprize: 6}};
             checkWinners.checkForWinner(response);
             lineWinnerSpy.should.have.been.calledWithExactly(response);
-            checkWinners.lineMessage.should.equal('Well Done! You have won the line prize of £'  + 1);
+            checkWinners.lineMessage.should.equal('Well Done! You have won the line prize of £' + 1);
 
         });
 
-        it.skip('Checks that the server response for a house is recognised', function(){
-            response = {message: 'Winner' , call: 28, winnerInfo: {lineprize: 1, houseprize: 6}};
+        it('Checks that the server response for a house is recognised', function () {
+            response = {message: 'Winner', call: 28, winnerInfo: {lineprize: 1, houseprize: 6}};
             checkWinners.checkForWinner(response);
             houseWinnerSpy.should.have.been.calledWithExactly(response);
-            checkWinners.houseMessage.should.equal('Well Done! You have won the house prize of £'  + 10);
+            checkWinners.houseMessage.should.equal('Well Done! You have won the house prize of £' + 6);
         });
 
-        afterEach(function(){
+        afterEach(function () {
             sandbox.restore();
             stateChangeSpy.restore();
             houseWinnerSpy.restore();
