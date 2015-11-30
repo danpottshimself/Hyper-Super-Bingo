@@ -38,13 +38,13 @@
                             '<li>Match all of the numbers on the ticket before anyone else and you will win the house prize</li>'+
                         '</ul>'+
                         '<br>'+
-                        '<div class="lobbyPadding">Once you click on the "start new game" button, you will be taken to the next available game of bingo.'+
+                        '<div class="lobbyPadding">Once you click on the "Play Game" button, you will be taken to the next available game of bingo.'+
                         'While you are waiting for the game to start, you can purchase bingo tickets.'+
                         'The more tickets you purchase, the better the chances of winning.</div>'+
                     '</div>'+
                     '<br>'+
                     '<div class="button together"> ' +
-                        '<input type="button" value="Start new game" ng-click="gameApi.getNextGame()">' +
+                        '<input type="button" value="Play Game" ng-click="gameApi.getNextGame()">' +
                     ' </div> ' +
                     '<div class="button together">'+
                         '<input type="button" value="Log Out" ng-click="userLogIn.logOut()"> ' +
@@ -84,7 +84,7 @@
                     '</div>'+
                     '</div>' +
                     '<br>'+
-                    '<a class = "button" ui-sref="logIn" href="#">Home</a>'
+                    '<a class = "button" ui-sref="lobby" href="#">Home</a>'
                     );
                      }]);
         })();
